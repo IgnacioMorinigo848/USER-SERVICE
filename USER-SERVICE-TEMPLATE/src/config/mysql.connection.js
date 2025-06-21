@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
   process.env.DATA_BASE_PASSWORD,   // Contraseña
   {
     host: process.env.HOST,         // Host de Railway
-    port: process.env.DB_PORT, // Puerto (usualmente 3306 para MySQL)
+    port: process.env.DB_PORT || 3306, // Puerto (usualmente 3306 para MySQL)
     dialect: "mysql",
     logging: false,
   }

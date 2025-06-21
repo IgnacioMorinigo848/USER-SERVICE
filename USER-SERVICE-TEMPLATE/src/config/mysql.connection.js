@@ -1,6 +1,9 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
+console.log('HOST:', process.env.HOST);
+console.log('DB_PORT:', process.env.DB_PORT);
+
 const sequelize = new Sequelize(
   process.env.DATA_BASE_NAME,       // Nombre de la base
   process.env.USER,                 // Usuario

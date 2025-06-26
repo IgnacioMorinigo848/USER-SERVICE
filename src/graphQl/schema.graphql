@@ -12,7 +12,6 @@ type FieldErrors {
   email: String
   nickName: String
   statusRegistration: String
-  existNickName: Boolean 
 }
 
 type TokenResponse {

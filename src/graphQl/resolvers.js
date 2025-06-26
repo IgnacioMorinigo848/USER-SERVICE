@@ -6,20 +6,27 @@ const resolvers = {
   Mutation: {
     previousSignUpData: async (_, { email, nickName }) => {
       try {
-        const verifySignUpDataResponse = await service.verifySignUpData(email, nickName);
-        
         if (!verifySignUpDataResponse.success) {
+      // armamos los errores solo con los campos necesarios
+      const errors = {
+        email: verifySignUpDataResponse.message.email ?? null,
+        nickName: verifySignUpDataResponse.message.nickName ?? null,
+        statusRegistration: verifySignUpDataResponse.message.statusRegistration ?? null,
+      };
+
+      // Solo incluimos existNickName si está presente
+      if ('existNickName' in verifySignUpDataResponse.message) {
+        errors.existNickName = verifySignUpDataResponse.message.existNickName;
+      }
+
+      return {
+        __typename: "FieldErrorsResponse",
+        success: false,
+        errors
+      };
+    }
+
         
-          return {
-            __typename:"FieldErrorsResponse",
-            success:verifySignUpDataResponse.success, 
-          errors: {
-            email: verifySignUpDataResponse.message.email ?? null,
-            nickName: verifySignUpDataResponse.message.nickName ?? null,
-            statusRegistration: verifySignUpDataResponse.message.statusRegistration ?? null,
-            existNickName:verifySignUpDataResponse.message.existNickName || false
-          }};
-        }
 
         const previousSignUpDataResponse = await service.previousSignUpData(email, nickName);
         

@@ -12,7 +12,7 @@ type FieldErrors {
   email: String
   nickName: String
   statusRegistration: String
-  existNickName:Boolean!
+  existNickName: Boolean 
 }
 
 type TokenResponse {

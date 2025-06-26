@@ -23,6 +23,7 @@ const verifySignUpData = async (email, nickName) => {
 
     if (nickNameResponse) {
       errors.nickName = "el nombre de usuario ya existe.";
+      errors.existNickName = true;
     }
 
     if (emailResponse && !emailResponse.statusRegistration) {

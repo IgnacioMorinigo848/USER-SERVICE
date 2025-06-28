@@ -79,7 +79,7 @@ const signIn = async (nickName,email,password) => {
 
     if (user) {
       console.log(user.email,email)
-      if(user && user.email === email){
+      if(user && user.email == email){
         const isValid = await comparePassword(password, user.password);
         return isValid ? { success: true, message: user.email } : { success: false, message: { password: "contraseña invalida." } };
       }else{

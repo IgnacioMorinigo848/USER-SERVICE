@@ -16,8 +16,7 @@ const resolvers = {
           errors: {
             email: verifySignUpDataResponse.message.email ?? null,
             nickName: verifySignUpDataResponse.message.nickName ?? null,
-            statusRegistration: verifySignUpDataResponse.message.statusRegistration ?? null,
-            existNickName:verifySignUpDataResponse.message.statusRegistration ?? false
+            statusRegistration: verifySignUpDataResponse.message.statusRegistration ?? null
           }};
         }
 

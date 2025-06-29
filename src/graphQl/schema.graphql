@@ -68,7 +68,7 @@ type getProfileMessage{
 type Mutation {
   previousSignUpData(email: String!, nickName: String!): PreviousSignUpDataResponse!
   completedSignUpData(newPassword:String!): MessageResponse!
-  signIn(email:String! ,password: String!): signInResponse!
+  signIn(nickName: String!, email:String! ,password: String!): signInResponse!
   codeValidator(receivedCode:String!):codeValidatorResponse!
   recoverAccount(newPassword:String!):MessageResponse!
   realeseAccount(email:String!):MessageResponse!

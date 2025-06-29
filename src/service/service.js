@@ -68,28 +68,25 @@ const completedSignUpData= async (newPassword, userEmail) =>{
 
 };
 
-const signIn = async (nickName,email,password) => {
+const signIn = async (email,password) => {
   try {
     const errors = {};
     
     const user = await User.findOne({
-      attributes: ["email", "password"],
-      where: { nickName }
+      attributes: ["nickName","email", "password"],
+      where: { email }
     });
 
     if (user) {
       console.log(user.email,email)
       if(user && user.email == email){
         const isValid = await comparePassword(password, user.password);
-        return isValid ? { success: true, message: user.email } : { success: false, message: { password: "contraseña invalida." } };
+        return isValid ? { success: true, message: user} : { success: false, message: { password: "contraseña invalida." } };
       }else{
         errors.email = "el email es invalido.";
         return { success: false, message: errors };
       };
-    } else {
-      errors.nickName = "nombre de usuario invalido.";
-      return { success: false, message: errors };
-    }
+    } 
   } catch (error) {
     return { success: false, message:error.message };
   }

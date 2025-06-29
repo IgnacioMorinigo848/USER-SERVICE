@@ -92,13 +92,13 @@ const resolvers = {
       }
     }
     },
-    signIn: async (_,{nickName,email,password}) =>{
+    signIn: async (_,{email,password}) =>{
       try{
         console.log(email)
-          const response = await service.signIn(nickName,email,password);
+          const response = await service.signIn(email,password);
           console.log(response)
           if(response.success){ 
-              const token = jwt.generateToken(nickName,email)
+              const token = jwt.generateToken(response.nickName,email)
               return {success:true,token:token};
           }else{
               return {success:false,errors:response.message}

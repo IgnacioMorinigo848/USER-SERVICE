@@ -78,15 +78,13 @@ const signIn = async (email,password) => {
     });
 
     if (user) {
-      console.log(user.email,email)
-      if(user && user.email === email){
         const isValid = await comparePassword(password, user.password);
         return isValid ? { success: true, message: user} : { success: false, message: { password: "contraseña invalida." } };
-      }else{
-        errors.email = "el email es invalido.";
-        return { success: false, message: errors };
-      };
-    } 
+    }else{
+      errors.email = "el email es invalido.";
+      return { success: false, message: errors };
+    };
+  
   } catch (error) {
     return { success: false, message:error.message };
   }

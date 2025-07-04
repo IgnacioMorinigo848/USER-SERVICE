@@ -119,9 +119,9 @@ const resolvers = {
     }
     
     },
-    releseAccount: async (_,{email}) =>{
+    releaseAccount: async (_,{email}) =>{
     try{
-      const response = await service.releseAccount(email);
+      const response = await service.releaseAccount(email);
       return response;
     }catch(error){
       return {success:false, message:error.message};

@@ -116,7 +116,7 @@ const userExist = async (suggestion) =>{
  }
 };
 
-const realeseAccount = async (email) =>{
+const releseAccount = async (email) =>{
   try{
     const response = await User.findOne({
       attributes:["statusRegistration"],
@@ -199,7 +199,7 @@ module.exports = {
   signIn,
   recoverAccount,
   userExist,
-  realeseAccount,
+  releseAccount,
   updateProfile,
   getProfile
 };

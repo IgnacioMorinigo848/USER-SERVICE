@@ -16,7 +16,7 @@ const authenticate = (req,res,next)=>{
     if(req.body.query.includes("nicknameSuggestions")){
         return next();
     }
-    if(req.body.query.includes("realeseAccount")){
+    if(req.body.query.includes("releaseAccount")){
         return next();
     }
     

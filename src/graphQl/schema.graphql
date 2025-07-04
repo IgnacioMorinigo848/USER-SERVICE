@@ -70,7 +70,7 @@ type Mutation {
   signIn(email:String! ,password: String!): signInResponse!
   codeValidator(receivedCode:String!):codeValidatorResponse!
   recoverAccount(newPassword:String!):MessageResponse!
-  realeseAccount(email:String!):MessageResponse!
+  releseAccount(email:String!):MessageResponse!
   updateProfile(url:String!): updateProfileMessage!
 }
 

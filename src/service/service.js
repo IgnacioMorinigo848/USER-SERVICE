@@ -131,7 +131,7 @@ const releaseAccount = async (email) =>{
         {
         where:{email}
         });
-        return deleteResponse ? {success:false, message:"el email se recupero exitosamente."}:{success:false, message:"el email no pudo ser recuperado correctamente."};
+        return deleteResponse ? {success:true, message:"el email se recupero exitosamente."}:{success:false, message:"el email no pudo ser recuperado correctamente."};
       } 
       return {success:false, message:"el email no pudo ser recuperado correctamente."};
 

@@ -26,6 +26,7 @@ const authenticate = (req,res,next)=>{
         const decoded = verifyToken(token);
         req.informationToken = decoded
         next();
+        return {__typename:"SuccessResponse",success:false,message:"codigo expirado."}
     }catch(err){
         return res.status(401).json({err:"token overdue."});
     };

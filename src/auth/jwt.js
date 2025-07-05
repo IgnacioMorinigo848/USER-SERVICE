@@ -6,7 +6,7 @@ const generateToken = (nickName,email) =>{
 };
 
 const tokenTemporal = (email, code) => {
-    return jwt.sign({ email:email, code:code }, process.env.JWT_SECRET, { expiresIn: "10m" });
+    return jwt.sign({ email:email, code:code }, process.env.JWT_SECRET, { expiresIn: "1m" });
   };
 
 const verifyToken = (token) =>{
